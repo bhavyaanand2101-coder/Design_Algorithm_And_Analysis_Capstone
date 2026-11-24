@@ -1,0 +1,946 @@
+{
+  "name": "Metropolitan City Scenario (N=50)",
+  "vehicle_capacity_weight": 75,
+  "vehicle_capacity_volume": 100,
+  "depot_id": 0,
+  "nodes": [
+    {
+      "id": 0,
+      "name": "Central Logistics Hub",
+      "x": 12.5,
+      "y": 12.5,
+      "is_depot": true,
+      "address": "Hub 0, Gateway Ave"
+    },
+    {
+      "id": 1,
+      "name": "Harbor Point #1",
+      "x": 18.57,
+      "y": 15.83,
+      "is_depot": false,
+      "address": "429 Harbor Point #1"
+    },
+    {
+      "id": 2,
+      "name": "Silicon Alley #2",
+      "x": 21.08,
+      "y": 5.51,
+      "is_depot": false,
+      "address": "417 Silicon Alley #2"
+    },
+    {
+      "id": 3,
+      "name": "University Campus #3",
+      "x": 23.29,
+      "y": 10.84,
+      "is_depot": false,
+      "address": "881 University Campus #3"
+    },
+    {
+      "id": 4,
+      "name": "Westend Mall #4",
+      "x": 11.38,
+      "y": 21.68,
+      "is_depot": false,
+      "address": "343 Westend Mall #4"
+    },
+    {
+      "id": 5,
+      "name": "Metro General Hospital #5",
+      "x": 5.64,
+      "y": 12.37,
+      "is_depot": false,
+      "address": "635 Metro General Hospital #5"
+    },
+    {
+      "id": 6,
+      "name": "Civic Center #6",
+      "x": 18.36,
+      "y": 15.78,
+      "is_depot": false,
+      "address": "206 Civic Center #6"
+    },
+    {
+      "id": 7,
+      "name": "Industrial Park #7",
+      "x": 20.98,
+      "y": 8.52,
+      "is_depot": false,
+      "address": "141 Industrial Park #7"
+    },
+    {
+      "id": 8,
+      "name": "Greenwood Residential #8",
+      "x": 10.79,
+      "y": 18.14,
+      "is_depot": false,
+      "address": "858 Greenwood Residential #8"
+    },
+    {
+      "id": 9,
+      "name": "Riverfront Esplanade #9",
+      "x": 17.28,
+      "y": 1.85,
+      "is_depot": false,
+      "address": "264 Riverfront Esplanade #9"
+    },
+    {
+      "id": 10,
+      "name": "Highland Heights #10",
+      "x": 18.32,
+      "y": 11.28,
+      "is_depot": false,
+      "address": "904 Highland Heights #10"
+    },
+    {
+      "id": 11,
+      "name": "Airport Cargo Hub #11",
+      "x": 20.82,
+      "y": 7.23,
+      "is_depot": false,
+      "address": "56 Airport Cargo Hub #11"
+    },
+    {
+      "id": 12,
+      "name": "Lakeside Estates #12",
+      "x": 22.39,
+      "y": 5.08,
+      "is_depot": false,
+      "address": "651 Lakeside Estates #12"
+    },
+    {
+      "id": 13,
+      "name": "Tech Corridor #13",
+      "x": 18.73,
+      "y": 1.89,
+      "is_depot": false,
+      "address": "276 Tech Corridor #13"
+    },
+    {
+      "id": 14,
+      "name": "Old Town Plaza #14",
+      "x": 1.27,
+      "y": 5.9,
+      "is_depot": false,
+      "address": "216 Old Town Plaza #14"
+    },
+    {
+      "id": 15,
+      "name": "Commerce Square #15",
+      "x": 3.87,
+      "y": 3.93,
+      "is_depot": false,
+      "address": "235 Commerce Square #15"
+    },
+    {
+      "id": 16,
+      "name": "Suburban North #16",
+      "x": 16.85,
+      "y": 16.05,
+      "is_depot": false,
+      "address": "456 Suburban North #16"
+    },
+    {
+      "id": 17,
+      "name": "South Gate #17",
+      "x": 23.62,
+      "y": 8.09,
+      "is_depot": false,
+      "address": "675 South Gate #17"
+    },
+    {
+      "id": 18,
+      "name": "Sunset Boulevard #18",
+      "x": 9.07,
+      "y": 7.87,
+      "is_depot": false,
+      "address": "354 Sunset Boulevard #18"
+    },
+    {
+      "id": 19,
+      "name": "Pineview Gardens #19",
+      "x": 20.9,
+      "y": 23.94,
+      "is_depot": false,
+      "address": "258 Pineview Gardens #19"
+    }
+  ],
+  "edges": [
+    {
+      "u": 0,
+      "v": 16,
+      "distance": 6.45,
+      "road_name": "Central -Suburban Blvd"
+    },
+    {
+      "u": 0,
+      "v": 18,
+      "distance": 6.62,
+      "road_name": "Central -Sunset B Highway"
+    },
+    {
+      "u": 0,
+      "v": 8,
+      "distance": 6.77,
+      "road_name": "Central -Greenwoo Way"
+    },
+    {
+      "u": 0,
+      "v": 10,
+      "distance": 6.84,
+      "road_name": "Central -Highland Avenue"
+    },
+    {
+      "u": 1,
+      "v": 6,
+      "distance": 1.0,
+      "road_name": "Harbor P-Civic Ce Expressway"
+    },
+    {
+      "u": 1,
+      "v": 16,
+      "distance": 1.99,
+      "road_name": "Harbor P-Suburban Expressway"
+    },
+    {
+      "u": 1,
+      "v": 10,
+      "distance": 5.24,
+      "road_name": "Harbor P-Highland Way"
+    },
+    {
+      "u": 1,
+      "v": 3,
+      "distance": 7.9,
+      "road_name": "Harbor P-Universi Way"
+    },
+    {
+      "u": 2,
+      "v": 12,
+      "distance": 1.59,
+      "road_name": "Silicon -Lakeside Blvd"
+    },
+    {
+      "u": 2,
+      "v": 11,
+      "distance": 2.0,
+      "road_name": "Silicon -Airport  Blvd"
+    },
+    {
+      "u": 2,
+      "v": 7,
+      "distance": 3.46,
+      "road_name": "Silicon -Industri Expressway"
+    },
+    {
+      "u": 2,
+      "v": 17,
+      "distance": 4.16,
+      "road_name": "Silicon -South Ga Avenue"
+    },
+    {
+      "u": 3,
+      "v": 17,
+      "distance": 3.19,
+      "road_name": "Universi-South Ga Avenue"
+    },
+    {
+      "u": 3,
+      "v": 7,
+      "distance": 3.76,
+      "road_name": "Universi-Industri Way"
+    },
+    {
+      "u": 3,
+      "v": 11,
+      "distance": 5.03,
+      "road_name": "Universi-Airport  Blvd"
+    },
+    {
+      "u": 3,
+      "v": 10,
+      "distance": 5.74,
+      "road_name": "Universi-Highland Blvd"
+    },
+    {
+      "u": 4,
+      "v": 8,
+      "distance": 4.13,
+      "road_name": "Westend -Greenwoo Highway"
+    },
+    {
+      "u": 4,
+      "v": 16,
+      "distance": 9.03,
+      "road_name": "Westend -Suburban Avenue"
+    },
+    {
+      "u": 4,
+      "v": 6,
+      "distance": 10.51,
+      "road_name": "Westend -Civic Ce Way"
+    },
+    {
+      "u": 0,
+      "v": 4,
+      "distance": 10.64,
+      "road_name": "Central -Westend  Blvd"
+    },
+    {
+      "u": 5,
+      "v": 18,
+      "distance": 6.51,
+      "road_name": "Metro Ge-Sunset B Highway"
+    },
+    {
+      "u": 0,
+      "v": 5,
+      "distance": 7.89,
+      "road_name": "Central -Metro Ge Highway"
+    },
+    {
+      "u": 5,
+      "v": 8,
+      "distance": 8.89,
+      "road_name": "Metro Ge-Greenwoo Way"
+    },
+    {
+      "u": 5,
+      "v": 14,
+      "distance": 8.98,
+      "road_name": "Metro Ge-Old Town Expressway"
+    },
+    {
+      "u": 6,
+      "v": 16,
+      "distance": 1.76,
+      "road_name": "Civic Ce-Suburban Way"
+    },
+    {
+      "u": 6,
+      "v": 10,
+      "distance": 5.17,
+      "road_name": "Civic Ce-Highland Blvd"
+    },
+    {
+      "u": 0,
+      "v": 6,
+      "distance": 7.73,
+      "road_name": "Central -Civic Ce Highway"
+    },
+    {
+      "u": 7,
+      "v": 11,
+      "distance": 1.49,
+      "road_name": "Industri-Airport  Blvd"
+    },
+    {
+      "u": 7,
+      "v": 17,
+      "distance": 3.07,
+      "road_name": "Industri-South Ga Avenue"
+    },
+    {
+      "u": 8,
+      "v": 16,
+      "distance": 7.37,
+      "road_name": "Greenwoo-Suburban Blvd"
+    },
+    {
+      "u": 9,
+      "v": 13,
+      "distance": 1.67,
+      "road_name": "Riverfro-Tech Cor Way"
+    },
+    {
+      "u": 2,
+      "v": 9,
+      "distance": 6.07,
+      "road_name": "Silicon -Riverfro Expressway"
+    },
+    {
+      "u": 9,
+      "v": 12,
+      "distance": 6.96,
+      "road_name": "Riverfro-Lakeside Blvd"
+    },
+    {
+      "u": 9,
+      "v": 11,
+      "distance": 7.41,
+      "road_name": "Riverfro-Airport  Avenue"
+    },
+    {
+      "u": 7,
+      "v": 10,
+      "distance": 4.4,
+      "road_name": "Industri-Highland Way"
+    },
+    {
+      "u": 10,
+      "v": 11,
+      "distance": 5.47,
+      "road_name": "Highland-Airport  Avenue"
+    },
+    {
+      "u": 11,
+      "v": 12,
+      "distance": 3.06,
+      "road_name": "Airport -Lakeside Way"
+    },
+    {
+      "u": 11,
+      "v": 17,
+      "distance": 3.37,
+      "road_name": "Airport -South Ga Expressway"
+    },
+    {
+      "u": 12,
+      "v": 17,
+      "distance": 3.74,
+      "road_name": "Lakeside-South Ga Avenue"
+    },
+    {
+      "u": 7,
+      "v": 12,
+      "distance": 4.28,
+      "road_name": "Industri-Lakeside Expressway"
+    },
+    {
+      "u": 2,
+      "v": 13,
+      "distance": 4.97,
+      "road_name": "Silicon -Tech Cor Highway"
+    },
+    {
+      "u": 12,
+      "v": 13,
+      "distance": 5.59,
+      "road_name": "Lakeside-Tech Cor Highway"
+    },
+    {
+      "u": 11,
+      "v": 13,
+      "distance": 6.59,
+      "road_name": "Airport -Tech Cor Avenue"
+    },
+    {
+      "u": 14,
+      "v": 15,
+      "distance": 3.75,
+      "road_name": "Old Town-Commerce Blvd"
+    },
+    {
+      "u": 14,
+      "v": 18,
+      "distance": 9.25,
+      "road_name": "Old Town-Sunset B Expressway"
+    },
+    {
+      "u": 0,
+      "v": 14,
+      "distance": 14.98,
+      "road_name": "Central -Old Town Expressway"
+    },
+    {
+      "u": 15,
+      "v": 18,
+      "distance": 7.5,
+      "road_name": "Commerce-Sunset B Way"
+    },
+    {
+      "u": 5,
+      "v": 15,
+      "distance": 9.91,
+      "road_name": "Metro Ge-Commerce Avenue"
+    },
+    {
+      "u": 0,
+      "v": 15,
+      "distance": 13.98,
+      "road_name": "Central -Commerce Highway"
+    },
+    {
+      "u": 10,
+      "v": 16,
+      "distance": 5.74,
+      "road_name": "Highland-Suburban Expressway"
+    },
+    {
+      "u": 1,
+      "v": 19,
+      "distance": 9.71,
+      "road_name": "Harbor P-Pineview Highway"
+    },
+    {
+      "u": 6,
+      "v": 19,
+      "distance": 9.83,
+      "road_name": "Civic Ce-Pineview Avenue"
+    },
+    {
+      "u": 16,
+      "v": 19,
+      "distance": 10.2,
+      "road_name": "Suburban-Pineview Way"
+    },
+    {
+      "u": 4,
+      "v": 19,
+      "distance": 11.25,
+      "road_name": "Westend -Pineview Avenue"
+    }
+  ],
+  "parcels": [
+    {
+      "id": "P001",
+      "destination_node": 1,
+      "weight": 9,
+      "volume": 8,
+      "priority": 4,
+      "deadline_hours": 3.4,
+      "base_value": 45
+    },
+    {
+      "id": "P002",
+      "destination_node": 1,
+      "weight": 5,
+      "volume": 8,
+      "priority": 2,
+      "deadline_hours": 15.4,
+      "base_value": 12
+    },
+    {
+      "id": "P003",
+      "destination_node": 15,
+      "weight": 8,
+      "volume": 9,
+      "priority": 5,
+      "deadline_hours": 3.8,
+      "base_value": 56
+    },
+    {
+      "id": "P004",
+      "destination_node": 8,
+      "weight": 9,
+      "volume": 11,
+      "priority": 3,
+      "deadline_hours": 4.2,
+      "base_value": 46
+    },
+    {
+      "id": "P005",
+      "destination_node": 6,
+      "weight": 5,
+      "volume": 3,
+      "priority": 1,
+      "deadline_hours": 14.2,
+      "base_value": 29
+    },
+    {
+      "id": "P006",
+      "destination_node": 18,
+      "weight": 12,
+      "volume": 7,
+      "priority": 1,
+      "deadline_hours": 6.8,
+      "base_value": 11
+    },
+    {
+      "id": "P007",
+      "destination_node": 17,
+      "weight": 10,
+      "volume": 12,
+      "priority": 3,
+      "deadline_hours": 7.9,
+      "base_value": 44
+    },
+    {
+      "id": "P008",
+      "destination_node": 13,
+      "weight": 7,
+      "volume": 6,
+      "priority": 4,
+      "deadline_hours": 2.2,
+      "base_value": 71
+    },
+    {
+      "id": "P009",
+      "destination_node": 5,
+      "weight": 10,
+      "volume": 13,
+      "priority": 1,
+      "deadline_hours": 7.8,
+      "base_value": 27
+    },
+    {
+      "id": "P010",
+      "destination_node": 18,
+      "weight": 3,
+      "volume": 6,
+      "priority": 2,
+      "deadline_hours": 12.9,
+      "base_value": 27
+    },
+    {
+      "id": "P011",
+      "destination_node": 8,
+      "weight": 10,
+      "volume": 3,
+      "priority": 3,
+      "deadline_hours": 4.5,
+      "base_value": 40
+    },
+    {
+      "id": "P012",
+      "destination_node": 9,
+      "weight": 11,
+      "volume": 9,
+      "priority": 4,
+      "deadline_hours": 2.1,
+      "base_value": 66
+    },
+    {
+      "id": "P013",
+      "destination_node": 5,
+      "weight": 5,
+      "volume": 14,
+      "priority": 1,
+      "deadline_hours": 16.6,
+      "base_value": 27
+    },
+    {
+      "id": "P014",
+      "destination_node": 16,
+      "weight": 11,
+      "volume": 5,
+      "priority": 2,
+      "deadline_hours": 23.6,
+      "base_value": 29
+    },
+    {
+      "id": "P015",
+      "destination_node": 8,
+      "weight": 12,
+      "volume": 5,
+      "priority": 1,
+      "deadline_hours": 12.7,
+      "base_value": 18
+    },
+    {
+      "id": "P016",
+      "destination_node": 7,
+      "weight": 2,
+      "volume": 13,
+      "priority": 2,
+      "deadline_hours": 8.8,
+      "base_value": 24
+    },
+    {
+      "id": "P017",
+      "destination_node": 2,
+      "weight": 7,
+      "volume": 5,
+      "priority": 3,
+      "deadline_hours": 7.1,
+      "base_value": 34
+    },
+    {
+      "id": "P018",
+      "destination_node": 5,
+      "weight": 2,
+      "volume": 2,
+      "priority": 5,
+      "deadline_hours": 1.4,
+      "base_value": 65
+    },
+    {
+      "id": "P019",
+      "destination_node": 2,
+      "weight": 7,
+      "volume": 4,
+      "priority": 2,
+      "deadline_hours": 19.8,
+      "base_value": 22
+    },
+    {
+      "id": "P020",
+      "destination_node": 19,
+      "weight": 9,
+      "volume": 7,
+      "priority": 1,
+      "deadline_hours": 6.9,
+      "base_value": 28
+    },
+    {
+      "id": "P021",
+      "destination_node": 5,
+      "weight": 7,
+      "volume": 4,
+      "priority": 5,
+      "deadline_hours": 1.8,
+      "base_value": 67
+    },
+    {
+      "id": "P022",
+      "destination_node": 7,
+      "weight": 8,
+      "volume": 12,
+      "priority": 2,
+      "deadline_hours": 19.5,
+      "base_value": 16
+    },
+    {
+      "id": "P023",
+      "destination_node": 12,
+      "weight": 6,
+      "volume": 5,
+      "priority": 2,
+      "deadline_hours": 17.3,
+      "base_value": 17
+    },
+    {
+      "id": "P024",
+      "destination_node": 1,
+      "weight": 5,
+      "volume": 5,
+      "priority": 3,
+      "deadline_hours": 7.3,
+      "base_value": 47
+    },
+    {
+      "id": "P025",
+      "destination_node": 18,
+      "weight": 3,
+      "volume": 10,
+      "priority": 1,
+      "deadline_hours": 12.1,
+      "base_value": 16
+    },
+    {
+      "id": "P026",
+      "destination_node": 8,
+      "weight": 6,
+      "volume": 4,
+      "priority": 2,
+      "deadline_hours": 9.6,
+      "base_value": 29
+    },
+    {
+      "id": "P027",
+      "destination_node": 15,
+      "weight": 8,
+      "volume": 8,
+      "priority": 3,
+      "deadline_hours": 6.9,
+      "base_value": 36
+    },
+    {
+      "id": "P028",
+      "destination_node": 19,
+      "weight": 3,
+      "volume": 7,
+      "priority": 2,
+      "deadline_hours": 15.6,
+      "base_value": 12
+    },
+    {
+      "id": "P029",
+      "destination_node": 8,
+      "weight": 12,
+      "volume": 13,
+      "priority": 3,
+      "deadline_hours": 7.8,
+      "base_value": 32
+    },
+    {
+      "id": "P030",
+      "destination_node": 6,
+      "weight": 11,
+      "volume": 6,
+      "priority": 3,
+      "deadline_hours": 6.7,
+      "base_value": 38
+    },
+    {
+      "id": "P031",
+      "destination_node": 16,
+      "weight": 3,
+      "volume": 9,
+      "priority": 1,
+      "deadline_hours": 22.8,
+      "base_value": 12
+    },
+    {
+      "id": "P032",
+      "destination_node": 3,
+      "weight": 7,
+      "volume": 8,
+      "priority": 3,
+      "deadline_hours": 7.0,
+      "base_value": 47
+    },
+    {
+      "id": "P033",
+      "destination_node": 11,
+      "weight": 2,
+      "volume": 13,
+      "priority": 2,
+      "deadline_hours": 9.7,
+      "base_value": 18
+    },
+    {
+      "id": "P034",
+      "destination_node": 12,
+      "weight": 2,
+      "volume": 5,
+      "priority": 4,
+      "deadline_hours": 3.1,
+      "base_value": 55
+    },
+    {
+      "id": "P035",
+      "destination_node": 11,
+      "weight": 10,
+      "volume": 7,
+      "priority": 2,
+      "deadline_hours": 20.7,
+      "base_value": 16
+    },
+    {
+      "id": "P036",
+      "destination_node": 5,
+      "weight": 9,
+      "volume": 2,
+      "priority": 1,
+      "deadline_hours": 17.5,
+      "base_value": 30
+    },
+    {
+      "id": "P037",
+      "destination_node": 17,
+      "weight": 5,
+      "volume": 8,
+      "priority": 1,
+      "deadline_hours": 8.1,
+      "base_value": 29
+    },
+    {
+      "id": "P038",
+      "destination_node": 16,
+      "weight": 6,
+      "volume": 12,
+      "priority": 2,
+      "deadline_hours": 17.1,
+      "base_value": 21
+    },
+    {
+      "id": "P039",
+      "destination_node": 16,
+      "weight": 11,
+      "volume": 5,
+      "priority": 2,
+      "deadline_hours": 6.5,
+      "base_value": 21
+    },
+    {
+      "id": "P040",
+      "destination_node": 12,
+      "weight": 10,
+      "volume": 11,
+      "priority": 2,
+      "deadline_hours": 7.1,
+      "base_value": 11
+    },
+    {
+      "id": "P041",
+      "destination_node": 17,
+      "weight": 12,
+      "volume": 5,
+      "priority": 2,
+      "deadline_hours": 14.6,
+      "base_value": 14
+    },
+    {
+      "id": "P042",
+      "destination_node": 5,
+      "weight": 7,
+      "volume": 2,
+      "priority": 2,
+      "deadline_hours": 10.9,
+      "base_value": 26
+    },
+    {
+      "id": "P043",
+      "destination_node": 3,
+      "weight": 4,
+      "volume": 4,
+      "priority": 2,
+      "deadline_hours": 18.0,
+      "base_value": 21
+    },
+    {
+      "id": "P044",
+      "destination_node": 8,
+      "weight": 7,
+      "volume": 10,
+      "priority": 2,
+      "deadline_hours": 18.8,
+      "base_value": 12
+    },
+    {
+      "id": "P045",
+      "destination_node": 1,
+      "weight": 12,
+      "volume": 8,
+      "priority": 4,
+      "deadline_hours": 1.2,
+      "base_value": 56
+    },
+    {
+      "id": "P046",
+      "destination_node": 10,
+      "weight": 3,
+      "volume": 8,
+      "priority": 4,
+      "deadline_hours": 2.5,
+      "base_value": 77
+    },
+    {
+      "id": "P047",
+      "destination_node": 10,
+      "weight": 5,
+      "volume": 8,
+      "priority": 1,
+      "deadline_hours": 16.0,
+      "base_value": 23
+    },
+    {
+      "id": "P048",
+      "destination_node": 8,
+      "weight": 10,
+      "volume": 7,
+      "priority": 1,
+      "deadline_hours": 16.7,
+      "base_value": 10
+    },
+    {
+      "id": "P049",
+      "destination_node": 14,
+      "weight": 10,
+      "volume": 12,
+      "priority": 3,
+      "deadline_hours": 3.3,
+      "base_value": 37
+    },
+    {
+      "id": "P050",
+      "destination_node": 8,
+      "weight": 4,
+      "volume": 7,
+      "priority": 5,
+      "deadline_hours": 2.1,
+      "base_value": 59
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "Small Fleet Delivery Problem (N=10)",
+  "vehicle_capacity_weight": 25,
+  "vehicle_capacity_volume": 30,
+  "depot_id": 0,
+  "nodes": [
+    {"id": 0, "name": "Central Hub", "x": 5.0, "y": 5.0, "is_depot": true, "address": "Hub 0, Logistics Way"},
+    {"id": 1, "name": "North Station", "x": 5.0, "y": 9.0, "is_depot": false, "address": "12 High St"},
+    {"id": 2, "name": "East Market", "x": 9.0, "y": 6.0, "is_depot": false, "address": "45 Market Ave"},
+    {"id": 3, "name": "South Plaza", "x": 6.0, "y": 1.0, "is_depot": false, "address": "88 South Blvd"},
+    {"id": 4, "name": "West Hill", "x": 1.0, "y": 5.0, "is_depot": false, "address": "7 Hill Rd"},
+    {"id": 5, "name": "City Hospital", "x": 8.0, "y": 8.0, "is_depot": false, "address": "90 Health Blvd"}
+  ],
+  "edges": [
+    {"u": 0, "v": 1, "distance": 4.1, "road_name": "Main North Ave"},
+    {"u": 0, "v": 2, "distance": 4.2, "road_name": "East Expressway"},
+    {"u": 0, "v": 3, "distance": 4.1, "road_name": "South Arterial"},
+    {"u": 0, "v": 4, "distance": 4.0, "road_name": "West Parkway"},
+    {"u": 1, "v": 5, "distance": 3.2, "road_name": "Hospital Connector"},
+    {"u": 2, "v": 5, "distance": 2.3, "road_name": "Medical Link"},
+    {"u": 2, "v": 3, "distance": 5.8, "road_name": "Ring Road East"},
+    {"u": 3, "v": 4, "distance": 6.4, "road_name": "Ring Road South"},
+    {"u": 4, "v": 1, "distance": 5.7, "road_name": "Ring Road West"}
+  ],
+  "parcels": [
+    {"id": "P01", "destination_node": 1, "weight": 5, "volume": 6, "priority": 4, "deadline_hours": 3.0, "base_value": 30},
+    {"id": "P02", "destination_node": 2, "weight": 8, "volume": 7, "priority": 5, "deadline_hours": 2.0, "base_value": 50},
+    {"id": "P03", "destination_node": 3, "weight": 4, "volume": 5, "priority": 2, "deadline_hours": 8.0, "base_value": 15},
+    {"id": "P04", "destination_node": 4, "weight": 7, "volume": 8, "priority": 3, "deadline_hours": 5.0, "base_value": 25},
+    {"id": "P05", "destination_node": 5, "weight": 3, "volume": 4, "priority": 5, "deadline_hours": 1.5, "base_value": 60},
+    {"id": "P06", "destination_node": 1, "weight": 6, "volume": 6, "priority": 2, "deadline_hours": 10.0, "base_value": 20},
+    {"id": "P07", "destination_node": 2, "weight": 9, "volume": 10, "priority": 1, "deadline_hours": 18.0, "base_value": 15},
+    {"id": "P08", "destination_node": 3, "weight": 4, "volume": 4, "priority": 4, "deadline_hours": 4.0, "base_value": 35},
+    {"id": "P09", "destination_node": 5, "weight": 2, "volume": 2, "priority": 5, "deadline_hours": 2.0, "base_value": 45},
+    {"id": "P10", "destination_node": 4, "weight": 5, "volume": 6, "priority": 3, "deadline_hours": 6.0, "base_value": 25}
+  ]
+}

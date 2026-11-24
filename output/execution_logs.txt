@@ -1,0 +1,259 @@
+
+===========================================================================
+DEMO RUN: Phase 1-3 Demonstration on Small Fleet Dataset (N=10)
+===========================================================================
+findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                   INTELLIGENT COURIER PLANNING SYSTEM                         ║
+║         Design & Analysis of Algorithms Capstone Project (100 Marks)          ║
+║      Sorting • Dynamic Programming • Dijkstra • TSP Approximation (2-Opt)     ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+    
+
+📂 Loading Problem Dataset: data/small_dataset.json
+   • Scenario Name: Small Fleet Delivery Problem (N=10)
+   • Network Topology: 6 Locations / Hubs, 9 Road Segments
+   • Courier Fleet Capacity: 25 kg Weight, 30 L Volume
+   • Incoming Parcels Queue: 10 items
+
+===========================================================================
+PHASE 2: PACKAGE PRIORITIZATION & BOX FILLING (0/1 KNAPSACK DP)
+===========================================================================
+✅ Sorting Algorithm: QUICKSORT | Comparisons: 34 | Time: 0.029 ms
+
+Top Prioritized Parcels (Sorted by Deadline ASC, Priority DESC, Density DESC):
+| Parcel ID   |   Dest Node | Weight   |   Priority | Deadline   |   Utility Value |   Value/Kg |
+|-------------|-------------|----------|------------|------------|-----------------|------------|
+| P05         |           5 | 3 kg     |          5 | 1.5 hrs    |             345 |     115    |
+| P09         |           5 | 2 kg     |          5 | 2.0 hrs    |             269 |     134.5  |
+| P02         |           2 | 8 kg     |          5 | 2.0 hrs    |             294 |      36.75 |
+| P01         |           1 | 5 kg     |          4 | 3.0 hrs    |             162 |      32.4  |
+| P08         |           3 | 4 kg     |          4 | 4.0 hrs    |             180 |      45    |
+| P04         |           4 | 7 kg     |          3 | 5.0 hrs    |             113 |      16.14 |
+| P10         |           4 | 5 kg     |          3 | 6.0 hrs    |             111 |      22.2  |
+| P03         |           3 | 4 kg     |          2 | 8.0 hrs    |              62 |      15.5  |
+... and 2 more parcels in prioritized queue.
+
+📦 Dynamic Programming Knapsack Results:
+   • Vehicle Payload Capacity: 25 kg
+   • Selected Parcels Loaded : 5 of 10
+   • Total Cargo Weight      : 22 kg (88.0% capacity utilization)
+   • Total Accumulated Value : 1250 pts
+   • DP Execution Latency    : 0.031 ms
+
+Loaded Cargo Manifest:
+| Parcel   | Destination Stop   | Weight   |   Priority | Deadline   |   Value |
+|----------|--------------------|----------|------------|------------|---------|
+| P05      | City Hospital      | 3 kg     |          5 | 1.5h       |     345 |
+| P09      | City Hospital      | 2 kg     |          5 | 2.0h       |     269 |
+| P02      | East Market        | 8 kg     |          5 | 2.0h       |     294 |
+| P01      | North Station      | 5 kg     |          4 | 3.0h       |     162 |
+| P08      | South Plaza        | 4 kg     |          4 | 4.0h       |     180 |
+
+---------------------------------------------------------------------------
+EVIDENCE: 0/1 KNAPSACK DYNAMIC PROGRAMMING TABLE:
+---------------------------------------------------------------------------
+DP Table Snippet: 10 Parcels x Capacity 0..25
+Item / W         |    0 |    1 |    2 |    3 |    4 |    5 |    6 |    7 |    8 |    9 |   10 |   11 |   12 |   13 |   14 |   15 |   16 |   17 |   18 |   19 |   20 |   21 |   22 |   23 |   24 |   25
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0 (Init)         |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0 |    0
+P05 (w=3,v=345)  |    0 |    0 |    0 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345 |  345
+P09 (w=2,v=269)  |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614 |  614
+P02 (w=8,v=294)  |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  614 |  614 |  639 |  639 |  908 |  908 |  908 |  908 |  908 |  908 |  908 |  908 |  908 |  908 |  908 |  908 |  908
+P01 (w=5,v=162)  |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  614 |  776 |  776 |  776 |  908 |  908 |  908 |  908 |  908 | 1070 | 1070 | 1070 | 1070 | 1070 | 1070 | 1070 | 1070
+P08 (w=4,v=180)  |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  794 |  794 |  794 |  794 |  908 |  956 |  956 |  956 | 1088 | 1088 | 1088 | 1088 | 1088 | 1250 | 1250 | 1250 | 1250
+P04 (w=7,v=113)  |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  794 |  794 |  794 |  794 |  908 |  956 |  956 |  956 | 1088 | 1088 | 1088 | 1088 | 1088 | 1250 | 1250 | 1250 | 1250
+P10 (w=5,v=111)  |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  794 |  794 |  794 |  794 |  908 |  956 |  956 |  956 | 1088 | 1088 | 1088 | 1088 | 1088 | 1250 | 1250 | 1250 | 1250
+P03 (w=4,v=62)   |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  794 |  794 |  794 |  794 |  908 |  956 |  956 |  956 | 1088 | 1088 | 1088 | 1088 | 1150 | 1250 | 1250 | 1250 | 1250
+P06 (w=6,v=68)   |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  794 |  794 |  794 |  794 |  908 |  956 |  956 |  956 | 1088 | 1088 | 1088 | 1088 | 1150 | 1250 | 1250 | 1250 | 1250
+P07 (w=9,v=27)   |    0 |    0 |  269 |  345 |  345 |  614 |  614 |  614 |  614 |  794 |  794 |  794 |  794 |  908 |  956 |  956 |  956 | 1088 | 1088 | 1088 | 1088 | 1150 | 1250 | 1250 | 1250 | 1250
+
+===========================================================================
+PHASE 3: ROUTE MAKER & GRAPH PROCESSING (DIJKSTRA + TSP 2-OPT)
+===========================================================================
+✅ Metric Distance Matrix computed via Dijkstra's Algorithm for 5 active points.
+   • Nearest Neighbor Initial Tour: 0 -> 1 -> 5 -> 2 -> 3 -> 0
+   • NN Tour Distance             : 19.5 km
+   • 2-Opt Optimized Tour         : 0 -> 1 -> 5 -> 2 -> 3 -> 0
+   • Optimized Tour Distance      : 19.5 km
+   • 2-Opt Swaps Executed         : 0 passes (Improvement: 0.00%)
+   • Exact Brute-Force Tour       : 0 -> 1 -> 5 -> 2 -> 3 -> 0
+   • Exact Optimal Tour Distance  : 19.5 km
+   • Measured Approximation Ratio : 1.000x (1.000 = Provably Optimal)
+
+🚗 Turn-by-Turn Road Transit Sequence:
+   Central Hub -> North Station -> City Hospital -> East Market -> South Plaza -> Central Hub
+   • Total Transit Distance       : 19.5 km
+   • Estimated Total Tour Time    : 53.4 minutes (Driving + Drop-off SLA)
+
+===========================================================================
+PHASE 4: ALGORITHMIC COMPONENT RUNTIME AUDIT
+===========================================================================
+| Pipeline Stage           | Algorithm               | Elapsed Runtime   |
+|--------------------------|-------------------------|-------------------|
+| 1. Priority Sorting      | Quicksort               | 0.0330 ms         |
+| 2. Knapsack Box Packing  | 0/1 Dynamic Programming | 0.0358 ms         |
+| 3. Shortest Path Graph   | Dijkstra Min-Heap       | 0.0363 ms         |
+| 4. TSP Route Generation  | Nearest Neighbor        | 0.0056 ms         |
+| 5. TSP Route Refinement  | 2-Opt Local Search      | 0.0082 ms         |
+| TOTAL Integrated Latency | End-to-End Pipeline     | 0.1640 ms         |
+
+🗺️  Delivery Route Map saved to: output/charts/small_route_map.png
+📊 DP Table Heatmap saved to: output/charts/small_dp_heatmap.png
+
+===========================================================================
+✅ EXECUTION SUCCESSFULLY COMPLETED
+===========================================================================
+
+===========================================================================
+DEMO RUN: Phase 1-3 Demonstration on Metropolitan City Scenario (N=50)
+===========================================================================
+findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                   INTELLIGENT COURIER PLANNING SYSTEM                         ║
+║         Design & Analysis of Algorithms Capstone Project (100 Marks)          ║
+║      Sorting • Dynamic Programming • Dijkstra • TSP Approximation (2-Opt)     ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+    
+
+📂 Loading Problem Dataset: data/city_courier_scenario.json
+   • Scenario Name: Metropolitan City Scenario (N=50)
+   • Network Topology: 20 Locations / Hubs, 54 Road Segments
+   • Courier Fleet Capacity: 75 kg Weight, 100 L Volume
+   • Incoming Parcels Queue: 50 items
+
+===========================================================================
+PHASE 2: PACKAGE PRIORITIZATION & BOX FILLING (0/1 KNAPSACK DP)
+===========================================================================
+✅ Sorting Algorithm: MERGESORT | Comparisons: 224 | Time: 0.203 ms
+
+Top Prioritized Parcels (Sorted by Deadline ASC, Priority DESC, Density DESC):
+| Parcel ID   |   Dest Node | Weight   |   Priority | Deadline   |   Utility Value |   Value/Kg |
+|-------------|-------------|----------|------------|------------|-----------------|------------|
+| P018        |           5 | 2 kg     |          5 | 1.4 hrs    |             370 |     185    |
+| P045        |           1 | 12 kg    |          4 | 1.2 hrs    |             270 |      22.5  |
+| P021        |           5 | 7 kg     |          5 | 1.8 hrs    |             379 |      54.14 |
+| P050        |           8 | 4 kg     |          5 | 2.1 hrs    |             339 |      84.75 |
+| P008        |          13 | 7 kg     |          4 | 2.2 hrs    |             328 |      46.86 |
+| P012        |           9 | 11 kg    |          4 | 2.1 hrs    |             308 |      28    |
+| P046        |          10 | 3 kg     |          4 | 2.5 hrs    |             351 |     117    |
+| P034        |          12 | 2 kg     |          4 | 3.1 hrs    |             262 |     131    |
+... and 42 more parcels in prioritized queue.
+
+📦 Dynamic Programming Knapsack Results:
+   • Vehicle Payload Capacity: 75 kg
+   • Selected Parcels Loaded : 14 of 50
+   • Total Cargo Weight      : 75 kg (100.0% capacity utilization)
+   • Total Accumulated Value : 3495 pts
+   • DP Execution Latency    : 0.274 ms
+
+Loaded Cargo Manifest:
+| Parcel   | Destination Stop          | Weight   |   Priority | Deadline   |   Value |
+|----------|---------------------------|----------|------------|------------|---------|
+| P018     | Metro General Hospital #5 | 2 kg     |          5 | 1.4h       |     370 |
+| P045     | Harbor Point #1           | 12 kg    |          4 | 1.2h       |     270 |
+| P021     | Metro General Hospital #5 | 7 kg     |          5 | 1.8h       |     379 |
+| P050     | Greenwood Residential #8  | 4 kg     |          5 | 2.1h       |     339 |
+| P008     | Tech Corridor #13         | 7 kg     |          4 | 2.2h       |     328 |
+| P012     | Riverfront Esplanade #9   | 11 kg    |          4 | 2.1h       |     308 |
+| P046     | Highland Heights #10      | 3 kg     |          4 | 2.5h       |     351 |
+| P034     | Lakeside Estates #12      | 2 kg     |          4 | 3.1h       |     262 |
+| P003     | Commerce Square #15       | 8 kg     |          5 | 3.8h       |     320 |
+| P032     | University Campus #3      | 7 kg     |          3 | 7.0h       |     175 |
+| P024     | Harbor Point #1           | 5 kg     |          3 | 7.3h       |     174 |
+| P016     | Industrial Park #7        | 2 kg     |          2 | 8.8h       |      78 |
+| P033     | Airport Cargo Hub #11     | 2 kg     |          2 | 9.7h       |      65 |
+| P010     | Sunset Boulevard #18      | 3 kg     |          2 | 12.9h      |      76 |
+
+===========================================================================
+PHASE 3: ROUTE MAKER & GRAPH PROCESSING (DIJKSTRA + TSP 2-OPT)
+===========================================================================
+✅ Metric Distance Matrix computed via Dijkstra's Algorithm for 13 active points.
+   • Nearest Neighbor Initial Tour: 0 -> 18 -> 5 -> 8 -> 1 -> 10 -> 7 -> 11 -> 12 -> 13 -> 9 -> 3 -> 15 -> 0
+   • NN Tour Distance             : 105.81 km
+   • 2-Opt Optimized Tour         : 0 -> 10 -> 9 -> 13 -> 12 -> 11 -> 7 -> 3 -> 1 -> 8 -> 5 -> 15 -> 18 -> 0
+   • Optimized Tour Distance      : 85.47 km
+   • 2-Opt Swaps Executed         : 4 passes (Improvement: 19.22%)
+
+🚗 Turn-by-Turn Road Transit Sequence:
+   Central Logistics Hub -> Highland Heights #10 -> Airport Cargo Hub #11 -> Riverfront Esplanade #9 -> Tech Corridor #13 -> Lakeside Estates #12 -> Airport Cargo Hub #11 -> Industrial Park #7 -> University Campus #3 -> Harbor Point #1 -> Suburban North #16 -> Greenwood Residential #8 -> Metro General Hospital #5 -> Commerce Square #15 -> Sunset Boulevard #18 -> Central Logistics Hub
+   • Total Transit Distance       : 85.47 km
+   • Estimated Total Tour Time    : 206.5 minutes (Driving + Drop-off SLA)
+
+===========================================================================
+PHASE 4: ALGORITHMIC COMPONENT RUNTIME AUDIT
+===========================================================================
+| Pipeline Stage           | Algorithm               | Elapsed Runtime   |
+|--------------------------|-------------------------|-------------------|
+| 1. Priority Sorting      | Mergesort               | 0.2063 ms         |
+| 2. Knapsack Box Packing  | 0/1 Dynamic Programming | 0.2781 ms         |
+| 3. Shortest Path Graph   | Dijkstra Min-Heap       | 0.2243 ms         |
+| 4. TSP Route Generation  | Nearest Neighbor        | 0.0144 ms         |
+| 5. TSP Route Refinement  | 2-Opt Local Search      | 0.0814 ms         |
+| TOTAL Integrated Latency | End-to-End Pipeline     | 0.8229 ms         |
+
+🗺️  Delivery Route Map saved to: output/charts/city_route_map.png
+📊 DP Table Heatmap saved to: output/charts/city_dp_heatmap.png
+
+===========================================================================
+✅ EXECUTION SUCCESSFULLY COMPLETED
+===========================================================================
+
+===========================================================================
+DEMO RUN: Phase 4 Performance Benchmarking & Scaling Suite
+===========================================================================
+
+[Phase 4.1] Benchmarking Sorting Algorithms (QuickSort vs MergeSort vs TimSort)...
+[Phase 4.2] Benchmarking 0/1 Knapsack DP Complexity O(N * W)...
+[Phase 4.3] Benchmarking TSP Optimization: Exact Brute-Force vs Nearest-Neighbor vs 2-Opt...
+[Phase 4.4] Profiling End-to-End Pipeline Stage Latency Breakdown...
+
+All benchmark plots successfully rendered to output/charts/
+
+======================================================================
+PHASE 4 BENCHMARK SUMMARY REPORT
+======================================================================
+
+### 1. Sorting Algorithms Benchmark (Runtime in ms)
+| Parcels (N) | QuickSort (ms) | MergeSort (ms) | TimSort (ms) | QS Comparisons | MS Comparisons |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 10          | 0.023          | 0.013          | 0.007        | 34             | 23             |
+| 25          | 0.028          | 0.024          | 0.0132       | 119            | 90             |
+| 50          | 0.0823         | 0.0715         | 0.0327       | 308            | 227            |
+| 100         | 0.1639         | 0.141          | 0.0865       | 711            | 550            |
+| 250         | 0.5123         | 0.4355         | 0.2937       | 2119           | 1670           |
+| 500         | 1.3052         | 1.122          | 0.826        | 4864           | 3872           |
+| 1000        | 3.1484         | 2.5989         | 1.9475       | 10561          | 8712           |
+
+### 2. 0/1 Knapsack DP Complexity O(N · W)
+| Configuration | State Space (N × W) | DP Runtime (ms) | Max Value | Items Selected |
+| :--- | :--- | :--- | :--- | :--- |
+| N=10,W=20     | 200                 | 0.03            | 638       | 4              |
+| N=25,W=40     | 1000                | 0.0734          | 1594      | 7              |
+| N=50,W=75     | 3750                | 0.2587          | 2924      | 13             |
+| N=100,W=120   | 12000               | 0.8552          | 6129      | 28             |
+| N=150,W=200   | 30000               | 1.9645          | 8846      | 42             |
+| N=200,W=300   | 60000               | 4.0627          | 11941     | 57             |
+
+### 3. TSP Scalability: Exact O(N!) vs Heuristics
+| Stops (N) | Exact Brute-Force (ms) | Nearest-Neighbor (ms) | 2-Opt (ms) | 2-Opt Improvement (%) | Approx Ratio (Opt / Exact) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 4         | 0.01 ms                | 0.005                 | 0.005      | 0.0                   | 1.000                      |
+| 6         | 0.114 ms               | 0.004                 | 0.01       | 13.51                 | 1.000                      |
+| 8         | 5.58 ms                | 0.015                 | 0.013      | 7.19                  | 1.000                      |
+| 9         | 50.169 ms              | 0.009                 | 0.015      | 0.0                   | 1.000                      |
+| 12        | Intractable            | 0.012                 | 0.027      | 0.0                   | N/A                        |
+| 16        | Intractable            | 0.016                 | 0.048      | 0.0                   | N/A                        |
+| 20        | Intractable            | 0.025                 | 0.124      | 5.4                   | N/A                        |
+| 25        | Intractable            | 0.038                 | 0.424      | 7.52                  | N/A                        |
+
+### 4. Full Pipeline Latency Breakdown (City Scenario, 50 Parcels)
+  - Sorting (QuickSort)         :  0.083 ms
+  - Packing (Knapsack DP)       :  0.265 ms
+  - Shortest Paths (Dijkstra)   :  0.201 ms
+  - Route Maker (NN TSP)        :  0.012 ms
+  - Route Refinement (2-Opt)    :  0.076 ms
+  - Total Integrated Latency   :  0.637 ms
+======================================================================
