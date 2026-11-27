@@ -3,57 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Intelligent Courier Planning System | DAA Capstone Project</title>
+  <title>Intelligent Courier Planning System | Dispatch Command Deck (DAA Capstone)</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
     code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+    /* Custom scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+<body class="bg-slate-100/90 text-slate-900 min-h-screen flex flex-col antialiased">
 
-  <!-- Top Header Navigation -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+  <!-- Top Dispatch Command Header -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-xl shadow-md">
-          🚚
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-emerald-400 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-blue-500/20">
+          ⚡
         </div>
         <div>
-          <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-            Intelligent Courier Planning System
-          </h1>
-          <p class="text-xs text-slate-500 font-medium">
-            Design & Analysis of Algorithms • Capstone Project (100 Marks)
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white">
+              Intelligent Courier Planning System
+            </h1>
+            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+              DAA Capstone • 100 Marks
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">
+            Sorting • Dynamic Programming • Dijkstra Shortest Paths • 2-Opt TSP Approximation
           </p>
         </div>
       </div>
-      <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">
-          ● Live Simulation
-        </span>
-        <a href="https://github.com/bhavyaanand2101-coder/Design_Algorithm_And_Analysis_Capstone" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition flex items-center gap-1.5 shadow-sm">
+
+      <!-- Action Links -->
+      <div class="flex items-center gap-2.5">
+        <button id="btnAddParcel" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition shadow-sm flex items-center gap-1.5">
+          <span>＋</span> Add Custom Parcel
+        </button>
+        <a href="https://github.com/bhavyaanand2101-coder/Design_Algorithm_And_Analysis_Capstone" target="_blank" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition border border-slate-700 flex items-center gap-1.5">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
+          Repository
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Interactive Controls Bar -->
-  <section class="bg-white border-b border-slate-200 py-3 shadow-sm">
+  <!-- Interactive Dispatch Controls Bar -->
+  <section class="bg-white border-b border-slate-200 py-3.5 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
       <div class="flex flex-wrap items-center gap-4">
         <!-- Scenario Selector -->
         <div>
-          <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Dataset Scenario</label>
+          <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Scenario Dataset</label>
           <select id="scenarioSelect" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold focus:ring-2 focus:ring-blue-500 outline-none">
             <option value="small_dataset">Small Fleet (N=10 Parcels, 6 Hubs)</option>
-            <option value="city_courier_scenario">Metropolitan City (N=50 Parcels, 20 Hubs)</option>
+            <option value="city_courier_scenario" selected>Metropolitan City (N=50 Parcels, 20 Hubs)</option>
             <option value="medium_dataset">Medium Suburban (N=35 Parcels, 15 Hubs)</option>
             <option value="large_dataset">Commercial Large (N=100 Parcels, 35 Hubs)</option>
           </select>
@@ -61,27 +75,35 @@
 
         <!-- Sorting Algorithm -->
         <div>
-          <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Priority Sorting</label>
+          <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Phase 2.1 Sorting Algorithm</label>
           <select id="sortAlgorithmSelect" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-xs font-semibold focus:ring-2 focus:ring-blue-500 outline-none">
-            <option value="quicksort">QuickSort (Median-of-3)</option>
             <option value="mergesort">MergeSort (Stable O(N log N))</option>
+            <option value="quicksort">QuickSort (Median-of-3)</option>
           </select>
         </div>
 
         <!-- Vehicle Capacity Slider -->
         <div class="w-48">
           <div class="flex justify-between items-center mb-1">
-            <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Payload Capacity</label>
-            <span id="capacityValue" class="text-xs font-bold text-blue-600 font-mono">25 kg</span>
+            <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Payload Limit</label>
+            <span id="capacityValue" class="text-xs font-bold text-blue-600 font-mono">75 kg</span>
           </div>
-          <input type="range" id="capacitySlider" min="10" max="250" step="5" value="25" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
+          <input type="range" id="capacitySlider" min="10" max="250" step="5" value="75" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
         </div>
 
         <!-- 2-Opt Toggle -->
         <div class="flex items-center gap-2 pt-4">
-          <input type="checkbox" id="toggle2Opt" checked class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500">
+          <input type="checkbox" id="toggle2Opt" checked class="w-4 h-4 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer">
           <label for="toggle2Opt" class="text-xs font-semibold text-slate-700 select-none cursor-pointer">
-            Apply 2-Opt Local Search
+            2-Opt Local Search
+          </label>
+        </div>
+
+        <!-- 2-Opt Diff Overlay -->
+        <div class="flex items-center gap-2 pt-4 border-l pl-3 border-slate-200">
+          <input type="checkbox" id="toggleShowDiff" class="w-4 h-4 text-rose-600 rounded border-slate-300 focus:ring-rose-500 cursor-pointer">
+          <label for="toggleShowDiff" class="text-xs font-semibold text-slate-700 select-none cursor-pointer flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-rose-500 inline-block"></span> Show Crossing Diff
           </label>
         </div>
       </div>
@@ -89,138 +111,167 @@
       <!-- Quick Metrics Summary -->
       <div class="flex items-center gap-4 text-xs">
         <div class="text-right">
-          <span class="text-slate-400 block text-[10px]">SCENARIO TOPOLOGY</span>
-          <span id="scenarioNodesCount" class="font-bold text-slate-700 font-mono">6 nodes</span> • 
-          <span id="scenarioEdgesCount" class="font-bold text-slate-700 font-mono">9 links</span>
+          <span class="text-slate-400 block text-[10px] font-bold uppercase">Territory Graph</span>
+          <span id="scenarioNodesCount" class="font-bold text-slate-800 font-mono">20 hubs</span> • 
+          <span id="scenarioEdgesCount" class="font-bold text-slate-800 font-mono">54 roads</span>
         </div>
         <div class="text-right border-l pl-4 border-slate-200">
-          <span class="text-slate-400 block text-[10px]">INCOMING QUEUE</span>
-          <span id="scenarioParcelsCount" class="font-bold text-slate-700 font-mono">10 parcels</span>
+          <span class="text-slate-400 block text-[10px] font-bold uppercase">Incoming Queue</span>
+          <span id="scenarioParcelsCount" class="font-bold text-slate-800 font-mono">50 parcels</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Performance Metric Cards Strip -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 w-full">
+  <!-- Live Telemetry Strip -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-5 w-full">
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
       <!-- Card 1 -->
       <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
         <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Loaded Parcels</p>
-        <p id="metricLoadedItems" class="text-lg font-extrabold text-slate-900 mt-1 font-mono">5 / 10</p>
+        <p id="metricLoadedItems" class="text-lg font-black text-slate-900 mt-1 font-mono">14 / 50</p>
         <span class="text-[10px] text-blue-600 font-semibold">Knapsack DP Selected</span>
       </div>
 
-      <!-- Card 2 -->
-      <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Cargo Weight</p>
-        <p id="metricPayloadWeight" class="text-lg font-extrabold text-slate-900 mt-1 font-mono">22 / 25 kg</p>
-        <span id="metricPayloadPct" class="text-[10px] text-emerald-600 font-semibold">88.0% utilized</span>
+      <!-- Card 2: Cargo Weight with Live Progress Bar -->
+      <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm flex flex-col justify-between">
+        <div>
+          <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Vehicle Payload</p>
+          <p id="metricPayloadWeight" class="text-lg font-black text-slate-900 mt-1 font-mono">75 / 75 kg</p>
+        </div>
+        <div class="mt-2">
+          <div class="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+            <div id="payloadBarFill" class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: 100%"></div>
+          </div>
+          <span id="metricPayloadPct" class="text-[10px] text-emerald-600 font-bold block mt-1">100.0% utilized</span>
+        </div>
       </div>
 
       <!-- Card 3 -->
       <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Delivery Utility</p>
-        <p id="metricTotalValue" class="text-lg font-extrabold text-indigo-600 mt-1 font-mono">1,250 pts</p>
-        <span class="text-[10px] text-indigo-500 font-semibold">Optimal Business Value</span>
+        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Total Utility Value</p>
+        <p id="metricTotalValue" class="text-lg font-black text-indigo-600 mt-1 font-mono">3,495 pts</p>
+        <span class="text-[10px] text-indigo-500 font-semibold">Maximized DP Payoff</span>
       </div>
 
       <!-- Card 4 -->
       <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
-        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Total Route Length</p>
-        <p id="metricRouteDistance" class="text-lg font-extrabold text-emerald-600 mt-1 font-mono">19.50 km</p>
-        <span class="text-[10px] text-slate-500 font-semibold">Shortest Circuit</span>
+        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Transit Distance</p>
+        <p id="metricRouteDistance" class="text-lg font-black text-emerald-600 mt-1 font-mono">85.47 km</p>
+        <span class="text-[10px] text-slate-500 font-semibold">Shortest Closed Loop</span>
       </div>
 
       <!-- Card 5 -->
       <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
         <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">2-Opt Optimization</p>
-        <p id="metric2OptImprovement" class="text-lg font-extrabold text-amber-600 mt-1 font-mono">0.0% reduced</p>
-        <span class="text-[10px] text-amber-600 font-semibold">Crossing Edge Untangled</span>
+        <p id="metric2OptImprovement" class="text-lg font-black text-amber-600 mt-1 font-mono">19.2% saved</p>
+        <span class="text-[10px] text-amber-600 font-semibold">Crossing Paths Untangled</span>
       </div>
 
       <!-- Card 6 -->
       <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-sm">
         <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Pipeline Latency</p>
-        <p id="metricPipelineLatency" class="text-lg font-extrabold text-rose-600 mt-1 font-mono">0.165 ms</p>
+        <p id="metricPipelineLatency" class="text-lg font-black text-rose-600 mt-1 font-mono">1.189 ms</p>
         <span class="text-[10px] text-rose-500 font-semibold">Sub-millisecond Compute</span>
       </div>
     </div>
   </section>
 
-  <!-- Main Multi-Phase Content Section -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
-    <!-- Tab Navigation -->
-    <div class="border-b border-slate-200 mb-6 flex gap-6">
+  <!-- Main Viewport Section -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 w-full flex-1">
+    <!-- Tab Controls -->
+    <div class="border-b border-slate-200 mb-5 flex flex-wrap gap-4 sm:gap-6 bg-white px-4 pt-3 rounded-xl border shadow-sm">
       <button id="btn-tab-route" onclick="switchTab('route')" class="tab-btn pb-3 text-sm font-bold border-b-2 border-blue-600 text-blue-600 flex items-center gap-1.5 transition">
-        <span>🗺️</span> Phase 3: Route Map & Navigational Circuit
+        <span>🗺️</span> Phase 3: Route Map & Navigational Simulation
       </button>
       <button id="btn-tab-packing" onclick="switchTab('packing')" class="tab-btn pb-3 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
-        <span>📦</span> Phase 2: Priority Sorting & DP Knapsack Table
+        <span>📦</span> Phase 2: Priority Sorting & DP Knapsack Matrix
       </button>
       <button id="btn-tab-benchmarks" onclick="switchTab('benchmarks')" class="tab-btn pb-3 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
-        <span>📊</span> Phase 4: Performance Benchmarks & Complexity
+        <span>📊</span> Phase 4: Algorithmic Benchmarks & Profiling
       </button>
       <button id="btn-tab-report" onclick="switchTab('report')" class="tab-btn pb-3 text-sm font-bold border-b-2 border-transparent text-slate-500 hover:text-slate-800 flex items-center gap-1.5 transition">
-        <span>📝</span> Phase 5: Academic Report & Mark Sheet
+        <span>📝</span> Phase 5: Academic Report & Mark Rubric
       </button>
     </div>
 
-    <!-- TAB 1: ROUTE MAP & NAVIGATIONAL CIRCUIT -->
-    <div id="tab-route" class="tab-content grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- TAB 1: INTERACTIVE ROUTE MAP & SIMULATION -->
+    <div id="tab-route" class="tab-content grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <!-- Left/Main Canvas Box -->
       <div class="lg:col-span-2 bg-white rounded-xl border border-slate-200 shadow-sm p-4 flex flex-col">
-        <div class="flex justify-between items-center mb-3">
+        <!-- Canvas Top Toolbar -->
+        <div class="flex flex-wrap justify-between items-center mb-3 gap-2">
           <div>
-            <h3 class="text-sm font-bold text-slate-800" id="scenarioTitle">Delivery Territory Route Graph</h3>
-            <p class="text-xs text-slate-400">Green directional vectors show Dijkstra-expanded road segment paths</p>
+            <h3 class="text-sm font-bold text-slate-900" id="scenarioTitle">Metropolitan City Delivery Route</h3>
+            <p class="text-xs text-slate-500">Green directional vectors show Dijkstra-expanded road network navigation</p>
           </div>
-          <div class="flex items-center gap-3 text-xs">
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-red-600 rounded-sm"></span> Depot</span>
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-blue-600 rounded-full"></span> Delivery Stop</span>
-            <span class="flex items-center gap-1"><span class="w-3 h-3 bg-slate-300 rounded-full"></span> Junction</span>
+          <!-- Simulation Toolbar -->
+          <div class="flex items-center gap-2">
+            <button id="btnPlaySim" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition shadow-sm flex items-center gap-1">
+              ▶ Play Delivery Simulation
+            </button>
+            <button id="btnResetSim" class="px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition" title="Reset Vehicle">
+              ↺ Reset
+            </button>
+            <div class="flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200">
+              <button id="btnZoomIn" class="px-2 py-1 text-slate-700 hover:bg-white rounded font-bold text-xs" title="Zoom In">+</button>
+              <button id="btnZoomOut" class="px-2 py-1 text-slate-700 hover:bg-white rounded font-bold text-xs" title="Zoom Out">−</button>
+              <button id="btnResetView" class="px-2 py-1 text-slate-700 hover:bg-white rounded text-xs" title="Reset Pan & Zoom">1:1</button>
+            </div>
           </div>
         </div>
-        <div class="flex-1 w-full flex items-center justify-center bg-slate-50 rounded-lg border border-slate-200 overflow-hidden">
-          <canvas id="routeCanvas" width="760" height="520" class="w-full h-auto max-h-[520px]"></canvas>
+
+        <!-- HTML5 Canvas Viewport -->
+        <div class="flex-1 w-full flex items-center justify-center bg-slate-50 rounded-lg border border-slate-200 overflow-hidden relative min-h-[480px]">
+          <canvas id="routeCanvas" width="800" height="520" class="w-full h-auto cursor-grab"></canvas>
+          <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-600 shadow-sm flex items-center gap-3">
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-red-600 rounded-sm inline-block"></span> Depot (0)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 bg-blue-600 rounded-full inline-block"></span> Active Stop</span>
+            <span class="flex items-center gap-1"><span class="w-2 h-2 bg-slate-400 rounded-full inline-block"></span> Road Junction</span>
+            <span class="text-slate-400">| Pan with drag • Zoom with scroll</span>
+          </div>
         </div>
       </div>
 
-      <!-- Turn by Turn Driver Manifest -->
+      <!-- Right Turn-by-Turn Driver Manifest -->
       <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-4 flex flex-col max-h-[580px]">
-        <div class="mb-3">
-          <h3 class="text-sm font-bold text-slate-800">Dispatch Manifest & Turn-by-Turn Trace</h3>
-          <p class="text-xs text-slate-400">Ordered sequence of stops with drop-off packages</p>
+        <div class="mb-3 border-b pb-2">
+          <h3 class="text-sm font-bold text-slate-900">Dispatch Manifest & Turn-by-Turn Trace</h3>
+          <p class="text-xs text-slate-500">Ordered sequence of stops with drop-off packages</p>
         </div>
         <div class="flex-1 overflow-y-auto pr-1">
-          <ul id="manifestStopList" class="space-y-0"></ul>
+          <ul id="manifestStopList" class="space-y-0 divide-y divide-slate-100"></ul>
         </div>
       </div>
     </div>
 
     <!-- TAB 2: PRIORITIZATION & DP PACKING TABLE -->
-    <div id="tab-packing" class="tab-content hidden space-y-6">
-      <!-- Top Prioritized Parcels -->
+    <div id="tab-packing" class="tab-content hidden space-y-5">
+      <!-- Prioritization Queue -->
       <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
         <div class="flex justify-between items-center mb-3">
           <div>
-            <h3 class="text-sm font-bold text-slate-800">Phase 2.1: Parcel Prioritization Queue</h3>
-            <p class="text-xs text-slate-400">Multi-criteria sort: Deadline (ASC) ➔ Priority (DESC) ➔ Value Density (DESC)</p>
+            <h3 class="text-sm font-bold text-slate-900">Phase 2.1: Parcel Prioritization Queue</h3>
+            <p class="text-xs text-slate-500">Sorted by Deadline SLA (ASC) ➔ Priority Tier (DESC) ➔ Value Density (DESC)</p>
           </div>
-          <span class="text-xs font-mono bg-blue-50 text-blue-700 px-2.5 py-1 rounded-md border border-blue-200">
-            Algorithm: <span id="lblSortAlgo">QuickSort (Median-of-3)</span>
-          </span>
+          <div class="text-right">
+            <span id="lblSortAlgo" class="text-xs font-mono font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200">
+              MergeSort (Stable O(N log N))
+            </span>
+            <p id="lblSortComparisons" class="text-[11px] text-slate-400 mt-1">224 comparisons in 0.459 ms</p>
+          </div>
         </div>
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto max-h-[340px]">
           <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-slate-100 text-slate-600 text-[11px] font-bold uppercase tracking-wider border-b">
+            <thead class="sticky top-0 z-10">
+              <tr class="bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider border-b">
                 <th class="px-3 py-2">Parcel ID</th>
-                <th class="px-3 py-2">Destination</th>
+                <th class="px-3 py-2">Destination Stop</th>
                 <th class="px-3 py-2">Weight</th>
-                <th class="px-3 py-2">Priority</th>
+                <th class="px-3 py-2">Priority Tier</th>
                 <th class="px-3 py-2">Deadline SLA</th>
-                <th class="px-3 py-2">Utility Value</th>
-                <th class="px-3 py-2">Value/Kg</th>
+                <th class="px-3 py-2">Utility Score</th>
+                <th class="px-3 py-2">Density (v/w)</th>
                 <th class="px-3 py-2">Status</th>
               </tr>
             </thead>
@@ -229,38 +280,59 @@
         </div>
       </div>
 
-      <!-- 0/1 Knapsack DP Table -->
+      <!-- 0/1 Knapsack DP Table with Cell Inspector -->
       <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
-        <div class="mb-3">
-          <h3 class="text-sm font-bold text-slate-800">Phase 2.2: 0/1 Knapsack Dynamic Programming Table</h3>
-          <p class="text-xs text-slate-400">
-            Recurrence: <code class="text-blue-600">DP[i][w] = max(DP[i-1][w], DP[i-1][w - w_i] + v_i)</code>. Cells in amber indicate backtracked item selections.
-          </p>
+        <div class="flex flex-wrap justify-between items-center mb-3 gap-2">
+          <div>
+            <h3 class="text-sm font-bold text-slate-900">Phase 2.2: 0/1 Knapsack Dynamic Programming Table</h3>
+            <p class="text-xs text-slate-500">
+              Recurrence: <code class="text-blue-600 font-bold">DP[i][w] = max(DP[i-1][w], DP[i-1][w - w_i] + v_i)</code>. Cells in amber indicate optimal backtracked item selections.
+            </p>
+          </div>
+          <!-- Live Cell Inspector Box -->
+          <div id="dpCellInfoBox" class="bg-blue-50 border border-blue-200 rounded-lg px-3 py-1.5 text-xs text-blue-900 font-mono shadow-sm">
+            💡 Hover over any cell in the DP table to inspect its decision recurrence.
+          </div>
         </div>
-        <div id="dpTableContainer" class="overflow-x-auto bg-slate-50 p-2 rounded-lg border border-slate-200"></div>
+        <div id="dpTableContainer" class="overflow-x-auto bg-slate-50 p-2 rounded-lg border border-slate-200 max-h-[400px]"></div>
       </div>
     </div>
 
     <!-- TAB 3: PERFORMANCE BENCHMARKS -->
-    <div id="tab-benchmarks" class="tab-content hidden space-y-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="tab-benchmarks" class="tab-content hidden space-y-5">
+      <!-- Live In-Browser Benchmark Bar -->
+      <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl p-4 shadow-sm flex flex-wrap justify-between items-center gap-4">
+        <div>
+          <h3 class="text-sm font-bold">Phase 4: Client-Side Algorithmic Profiling</h3>
+          <p class="text-xs text-blue-200 mt-0.5">Benchmark the algorithms live inside your current browser JavaScript engine.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="benchmarkLiveStatus" class="text-xs text-blue-300 font-mono">Ready to test</span>
+          <button id="btnRunLiveBenchmark" class="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold text-xs transition shadow-sm">
+            ⚡ Run Live Benchmark
+          </button>
+        </div>
+      </div>
+
+      <!-- Charts Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
         <!-- Chart 1: Sorting -->
         <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-          <h4 class="text-xs font-bold text-slate-700 uppercase mb-2">1. Sorting Runtimes vs N</h4>
-          <p class="text-[11px] text-slate-400 mb-3">QuickSort (Median-of-3) vs MergeSort vs TimSort ($N=10$ to $1000$)</p>
+          <h4 class="text-xs font-bold text-slate-700 uppercase mb-1">1. Sorting Runtimes vs N</h4>
+          <p class="text-[11px] text-slate-400 mb-3">QuickSort (Median-of-3) vs MergeSort ($N=10$ to $1000$)</p>
           <canvas id="chartSorting" height="220"></canvas>
         </div>
 
         <!-- Chart 2: Knapsack DP -->
         <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-          <h4 class="text-xs font-bold text-slate-700 uppercase mb-2">2. Knapsack DP Scaling O(N · W)</h4>
+          <h4 class="text-xs font-bold text-slate-700 uppercase mb-1">2. Knapsack DP Scaling O(N · W)</h4>
           <p class="text-[11px] text-slate-400 mb-3">Empirical runtime vs subproblem state-space size</p>
           <canvas id="chartKnapsack" height="220"></canvas>
         </div>
 
         <!-- Chart 3: TSP Scalability -->
         <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-          <h4 class="text-xs font-bold text-slate-700 uppercase mb-2">3. TSP Optimization Runtimes</h4>
+          <h4 class="text-xs font-bold text-slate-700 uppercase mb-1">3. TSP Optimization Runtimes</h4>
           <p class="text-[11px] text-slate-400 mb-3">Exact $O(N!)$ explosion vs Nearest Neighbor $O(N^2)$ & 2-Opt</p>
           <canvas id="chartTSP" height="220"></canvas>
         </div>
@@ -268,7 +340,7 @@
 
       <!-- Complexity Analysis Table -->
       <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-5">
-        <h3 class="text-sm font-bold text-slate-800 mb-3">Theoretical vs. Empirical Complexity Audit</h3>
+        <h3 class="text-sm font-bold text-slate-900 mb-3">Theoretical vs. Empirical Complexity Audit</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
@@ -286,35 +358,35 @@
                 <td class="p-2.5 font-sans">Divide & Conquer</td>
                 <td class="p-2.5">O(N log N)</td>
                 <td class="p-2.5">O(N) / O(log N)</td>
-                <td class="p-2.5 text-blue-600">0.083 ms (224 comparisons)</td>
+                <td class="p-2.5 text-blue-600 font-bold">0.083 ms (224 comparisons)</td>
               </tr>
               <tr>
                 <td class="p-2.5 font-sans font-semibold">Box Packing</td>
                 <td class="p-2.5 font-sans">Dynamic Programming</td>
                 <td class="p-2.5">O(N · W)</td>
                 <td class="p-2.5">O(N · W)</td>
-                <td class="p-2.5 text-blue-600">0.265 ms (100% payload fill)</td>
+                <td class="p-2.5 text-blue-600 font-bold">0.265 ms (100% payload fill)</td>
               </tr>
               <tr>
                 <td class="p-2.5 font-sans font-semibold">Shortest Paths</td>
                 <td class="p-2.5 font-sans">Greedy Graph (Dijkstra)</td>
                 <td class="p-2.5">O((V + E) log V)</td>
                 <td class="p-2.5">O(V + E)</td>
-                <td class="p-2.5 text-blue-600">0.201 ms (13 active stops)</td>
+                <td class="p-2.5 text-blue-600 font-bold">0.201 ms (13 active stops)</td>
               </tr>
               <tr>
                 <td class="p-2.5 font-sans font-semibold">Route Generation</td>
                 <td class="p-2.5 font-sans">Greedy Nearest Neighbor</td>
                 <td class="p-2.5">O(N²)</td>
                 <td class="p-2.5">O(N)</td>
-                <td class="p-2.5 text-blue-600">0.012 ms</td>
+                <td class="p-2.5 text-blue-600 font-bold">0.012 ms</td>
               </tr>
               <tr>
                 <td class="p-2.5 font-sans font-semibold">Route Refinement</td>
                 <td class="p-2.5 font-sans">2-Opt Local Search</td>
                 <td class="p-2.5">O(N² per pass)</td>
                 <td class="p-2.5">O(N)</td>
-                <td class="p-2.5 text-blue-600">0.076 ms (19.22% distance reduction)</td>
+                <td class="p-2.5 text-blue-600 font-bold">0.076 ms (19.22% distance reduction)</td>
               </tr>
             </tbody>
           </table>
@@ -323,7 +395,7 @@
     </div>
 
     <!-- TAB 4: ACADEMIC CAPSTONE REPORT & EVALUATION -->
-    <div id="tab-report" class="tab-content hidden space-y-6">
+    <div id="tab-report" class="tab-content hidden space-y-5">
       <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 space-y-4">
         <div class="flex justify-between items-start border-b pb-4">
           <div>
@@ -371,10 +443,57 @@
     </div>
   </main>
 
+  <!-- Add Custom Parcel Modal -->
+  <div id="modalAddParcel" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-base font-bold text-slate-900">Add Custom Package to Queue</h3>
+        <button id="btnCancelAddParcel" class="text-slate-400 hover:text-slate-600 text-lg font-bold">✕</button>
+      </div>
+      <form id="formAddParcel" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Destination Location</label>
+          <select id="newParcelDest" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold outline-none focus:ring-2 focus:ring-blue-500"></select>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Weight (kg)</label>
+            <input type="number" id="newParcelWeight" min="1" max="50" value="6" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-mono font-semibold outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Priority Tier</label>
+            <select id="newParcelPriority" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold outline-none focus:ring-2 focus:ring-blue-500">
+              <option value="5">Tier 5 (Emergency / Urgent)</option>
+              <option value="4">Tier 4 (Same-Day Express)</option>
+              <option value="3" selected>Tier 3 (Expedited)</option>
+              <option value="2">Tier 2 (Standard Air)</option>
+              <option value="1">Tier 1 (Economy Ground)</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Deadline SLA (hours)</label>
+            <input type="number" id="newParcelDeadline" min="0.5" max="48" step="0.5" value="3.5" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-mono font-semibold outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Base Value (pts)</label>
+            <input type="number" id="newParcelBaseVal" min="5" max="200" value="45" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-xs font-mono font-semibold outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="submit" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-sm transition">
+            Add & Recalculate Plan
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-white border-t border-slate-200 py-4 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between items-center text-xs text-slate-500 gap-2">
-      <p>DAA Capstone Project Prototype • Design and Analysis of Algorithms (Sem 3)</p>
+      <p>DAA Capstone Project Prototype • Design & Analysis of Algorithms</p>
       <p>Powered by Python 3 & WebAssembly/ES6 • 100% Client-Side Simulation</p>
     </div>
   </footer>
