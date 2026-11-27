@@ -1,9 +1,13 @@
 # Intelligent Courier Planning System
 ### Design and Analysis of Algorithms (DAA) — Capstone Project (100 Marks)
 
+[![Live Web Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-success?style=for-the-badge&logo=github)](https://bhavyaanand2101-coder.github.io/Design_Algorithm_And_Analysis_Capstone/)
 [![Tests](https://img.shields.io/badge/pytest-14%20passed-brightgreen.svg)]()
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-purple.svg)]()
+
+> 🌐 **Interactive Web Application**: Experience the full live algorithm simulator directly in your browser:  
+> 👉 **[https://bhavyaanand2101-coder.github.io/Design_Algorithm_And_Analysis_Capstone/](https://bhavyaanand2101-coder.github.io/Design_Algorithm_And_Analysis_Capstone/)**
 
 An integrated algorithmic decision-support engine that solves the multi-tier courier delivery problem by combining:
 1. **Multi-Criteria Sorting** (QuickSort with Median-of-Three & MergeSort) for parcel prioritization.
